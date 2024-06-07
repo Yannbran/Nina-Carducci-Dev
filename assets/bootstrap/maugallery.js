@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
   $('.gallery').mauGallery({
       columns: {
@@ -14,8 +13,6 @@ $(document).ready(function() {
       tagsPosition: 'top'
   });
 });
-
-
 (function($) {
   $.fn.mauGallery = function(options) {
     var options = $.extend($.fn.mauGallery.defaults, options);
