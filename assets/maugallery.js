@@ -1,48 +1,9 @@
-$(document).ready(function () {
-  $(".gallery").mauGallery({
-    columns: {
-      xs: 1,
-      sm: 2,
-      md: 3,
-      lg: 3,
-      xl: 3,
-    },
-    lightBox: true,
-    lightboxId: "myAwesomeLightbox",
-    showTags: true,
-    tagsPosition: "top",
-  });
-});
-(function ($) {
-  $.fn.mauGallery = function (options) {
-    var options = $.extend($.fn.mauGallery.defaults, options);
-    var tagsCollection = [];
-    return this.each(function () {
-      $.fn.mauGallery.methods.createRowWrapper($(this));
-      if (options.lightBox) {
-        $.fn.mauGallery.methods.createLightBox(
-          $(this),
-          options.lightboxId,
-          options.navigation
-        );
-      }
-      $.fn.mauGallery.listeners(options);
 
-      $(this)
-        .children(".gallery-item")
-        .each(function (index) {
-          $.fn.mauGallery.methods.responsiveImageItem($(this));
-          $.fn.mauGallery.methods.moveItemInRowWrapper($(this));
-          $.fn.mauGallery.methods.wrapItemInColumn($(this), options.columns);
-          var theTag = $(this).data("gallery-tag");
-          if (
-            options.showTags &&
-            theTag !== undefined &&
-            tagsCollection.indexOf(theTag) === -1
-          ) {
-            tagsCollection.push(theTag);
-          }
-        });
+$(document).ready(function (){$(".gallery").mauGallery({columns:{ xs: 1,sm: 2,md: 3,lg: 3,xl: 3,},lightBox: true,lightboxId: "myAwesomeLightbox",showTags: true,tagsPosition: "top",});
+});(function ($) {$.fn.mauGallery = function (options) {var options = $.extend($.fn.mauGallery.defaults, options);var tagsCollection = [];return this.each(function () {$.fn.mauGallery.methods.createRowWrapper($(this));if (options.lightBox) {
+$.fn.mauGallery.methods.createLightBox($(this),options.lightboxId,options.navigation);}$.fn.mauGallery.listeners(options);$(this).children(".gallery-item").each(function (index) {
+$.fn.mauGallery.methods.responsiveImageItem($(this));$.fn.mauGallery.methods.moveItemInRowWrapper($(this));$.fn.mauGallery.methods.wrapItemInColumn($(this), options.columns);var theTag = $(this).data("gallery-tag");
+if (options.showTags &&theTag !== undefined &&tagsCollection.indexOf(theTag) === -1) {tagsCollection.push(theTag);}});
       if (options.showTags) {
         $.fn.mauGallery.methods.showItemTags(
           $(this),
@@ -113,6 +74,17 @@ $(document).ready(function () {
         );
       }
     },
+
+
+
+
+
+
+
+
+
+
+
     moveItemInRowWrapper(element) {
       element.appendTo(".gallery-items-row");
     },
